@@ -1,8 +1,11 @@
 import { useState } from "react";
-import Profile from "./components/Profile/Profile";
 import "./App.css";
-import userData from "../src/userData.json";
-console.log(userData);
+import Profile from "./components/Profile/Profile";
+import userData from "../src/data/userData.json";
+import FriendList from "./components/FriendList/FriendList";
+import friends from "../src/data/friends.json";
+import TransactionHistory from "./components/TransactionHistory/TransactionHistory";
+import transactions from "../src/data/transactions.json";
 const App = () => {
   return (
     <>
@@ -10,9 +13,12 @@ const App = () => {
         name={userData.username}
         tag={userData.tag}
         location={userData.location}
-        avatar={userData.avatar}
+        image={userData.avatar}
         stats={userData.stats}
       />
+      <FriendList friends={friends} />
+
+      <TransactionHistory items={transactions} />
     </>
   );
 };
